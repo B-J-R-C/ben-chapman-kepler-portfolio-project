@@ -1,0 +1,585 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: rgb(0, 0, 102);
+
+  /* TO center .content-container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* header at top */
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 3px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* under header */
+.main-layout {
+  display: flex;
+  margin-top: 60px;
+  width: 100%;
+  max-width: 1200px;
+
+}
+
+/* Sidebar nav */
+nav {
+  width: 200px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 8px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+/* Main content section (within .main-layout) */
+
+.main-layout>main {
+  flex: 1;
+  padding: 20px;
+}
+
+.main-layout>section {
+  flex: 1;
+  padding: 20px;
+}
+
+
+/* --- Style for centered "Leave a message" section --- */
+.content-container {
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content-container h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 1.8em;
+}
+
+#addUserForm label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+  color: #555;
+}
+
+#addUserForm input[type="text"],
+#addUserForm input[type="email"] {
+  width: calc(100% - 22px);
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+#addUserForm input[type="text"]:focus,
+#addUserForm input[type="email"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+#addUserForm textarea {
+  width: calc(100% - 22px);
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  resize: vertical; /* resize vertically */
+}
+
+#addUserForm textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Style for new message text */
+#userList li span small {
+  color: #555;
+  display: block;
+  margin-top: 4px;
+}
+
+#addUserForm button[type="submit"] {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#addUserForm button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* userList style */
+#loading {
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #777;
+}
+
+#userList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#userList li {
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#userList li:last-child {
+  border-bottom: none;
+}
+
+/* --- BUTTONS --- */
+
+.button-container {
+  display: flex;
+  gap: 5px;
+}
+
+#userList button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+#userList button:hover {
+  background-color: #e0e0e0;
+}
+
+#userList .edit-btn {
+  background-color: #f0cb5d;
+  border-color: #f0cb5d;
+  color: #333;
+}
+
+#userList .edit-btn:hover {
+  background-color: #e0a800;
+}
+
+#userList .remove-btn {
+  background-color: #a43131;
+  border-color: #c82333;
+  color: white;
+}
+
+#userList .remove-btn:hover {
+  background-color: #c82333;
+}
+
+
+/* --- Skills & Projects Styling --- */
+
+#skills-section h2,
+#projects-section h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 2.2em;
+}
+
+/* Grouped #skills and #projects */
+#skills-section ul,
+#projects-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Grouped list */
+#skills-section ul li,
+#projects-section ul li {
+  background-color: #ffffff;
+  color: #333;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Grouped hover */
+#skills-section ul li:hover,
+#projects-section ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  background-color: #e9ecef;
+}
+
+/* Button style */
+#clickMeBtn {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+}
+
+#clickMeBtn:hover {
+  background-color: goldenrod;
+}
+
+/* Center click-me */
+#click-me-section {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+
+#main-heading {
+  color: #34495e;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  font-size: 3.5em;
+  line-height: 1;
+}
+
+.profile-photo {
+  height: 6.5em;
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.roboto-font {
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+#change-text-btn {
+  color: aqua;
+  background-color: rebeccapurple;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 20px;
+}
+
+a[href="Page1.html"] {
+  display: block;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a43131;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  max-width: 1200px;
+  height: 40px;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+#Experience h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.experience-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #555;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#Connect ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  gap: 20px;
+}
+
+#Connect ul li a {
+  font-size: 2em;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#Connect ul li a:hover {
+  color: #054282;
+}
+
+/* * Media for Responsiveness * */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .main-layout {
+    margin-top: 85px;
+  }
+
+  nav {
+    width: 180px;
+    padding: 15px;
+  }
+
+  #main-heading {
+    font-size: 3em;
+  }
+
+  .profile-photo {
+    height: 5.5em;
+  }
+
+  #Experience h2,
+  #skills-section h2,
+  #projects-section h2 {
+    font-size: 2em;
+  }
+
+  /* Grouped both sections */
+  #skills-section ul li,
+  #projects-section ul li {
+    font-size: 0.95em;
+    padding: 10px 18px;
+  }
+
+  .experience-item {
+    font-size: 1em;
+    padding: 20px;
+  }
+
+  #Connect ul li a {
+    font-size: 1.8em;
+  }
+
+  footer {
+    height: 35px;
+    font-size: 0.95em;
+  }
+
+  .content-container {
+    padding: 25px;
+    max-width: 450px;
+  }
+
+  .content-container h3 {
+    font-size: 1.6em;
+  }
+
+  #addUserForm input[type="text"],
+  #addUserForm input[type="email"],
+  #addUserForm button[type="submit"] {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    order: -1;
+  }
+
+  nav a {
+    margin: 0;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .heading-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #main-heading {
+    font-size: 2.2em;
+  }
+
+  .profile-photo {
+    height: 4em;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  #Experience h2,
+  #skills-section h2,
+  #projects-section h2 {
+    font-size: 1.8em;
+  }
+
+  /* Grouped */
+  #skills-section ul,
+  #projects-section ul {
+    gap: 10px;
+  }
+
+
+  #skills-section ul li,
+  #projects-section ul li {
+    font-size: 0.9em;
+    padding: 8px 15px;
+    border-radius: 15px;
+  }
+
+  .experience-item {
+    font-size: 0.9em;
+    padding: 15px;
+  }
+
+  #Connect ul li a {
+    font-size: 1.5em;
+  }
+
+  footer {
+    padding: 8px;
+    font-size: 0.85em;
+    height: 30px;
+  }
+
+  .content-container {
+    width: 95%;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .content-container h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+
+  #addUserForm label {
+    margin-top: 10px;
+  }
+
+  #addUserForm input[type="text"],
+  #addUserForm input[type="email"],
+  #addUserForm button[type="submit"] {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  #addUserForm button[type="submit"] {
+    padding: 10px 20px;
+  }
+
+  #userList li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
