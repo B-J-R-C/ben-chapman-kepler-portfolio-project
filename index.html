@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben's Website</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Ben's Website</h1>
+  </header>
+
+  <div class="main-layout">
+    <nav>
+      <a href="about.html">About</a>
+      <a href="page1.html">Experience</a>
+      <a href="#skills-section">Skills</a>
+      <a href="#projects-section">Projects</a>
+      <a href="Connect.html">Connect</a>
+    </nav>
+
+    <section id="skills-section">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML</li>
+        <li>Skill 2</li>
+        <li>JavaScript</li>
+        <li>Git/GitHub</li>
+        <li>Skill 5</li>
+      </ul>
+    </section>
+
+
+    <section id="click-me-section">
+      <h3>Click the button to change the background colour</h3>
+      <button id="clickMeBtn">Click Me</button>
+    </section>
+
+    <section id="projects-section">
+      <h2>Projects</h2>
+      <ul>
+      </ul>
+    </section>
+
+    <id="change-text-btn"></id>
+
+
+  </div>
+
+  <div class="content-container"></div>
+  <h3>Leave a message</h3>
+  <div id="loading">Loading users…</div>
+  <ul id="userList"></ul>
+  <form id="addUserForm">
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" name="userName" required />
+    
+    <label for="userMessage">Message:</label>
+    <textarea id="userMessage" name="userMessage" rows="4" required></textarea>
+    
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email" required />
+
+    <button type="submit">Leave a message</button>
+  </form>
+  </div>
+
+  <script src="js/index.js"></script>
+
+</body>
